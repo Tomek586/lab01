@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+.card {
+  transition: transform 0.2s; /* Animacja przy hover */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Powiększenie karty przy hover */
+}

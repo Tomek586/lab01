@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { data } from './module-data'; 
+import PersonProfile from './PersonProfile'; 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div className="container">
+            <h1 className="text-center my-4">Profile Osób</h1>
+            <div className="row">
+                {data.map(person => (
+                    <div className="col-md-4" key={person.id}> 
+                        <PersonProfile person={person} /> 
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
 
 export default App;
