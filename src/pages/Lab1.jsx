@@ -16,7 +16,7 @@ function Lab2() {
   return (
     <div className="container">
       <h1 className="text-center my-4">Profil Osoby</h1>
-      <PersonProfile person={osoba} /> {/* Wyświetlanie profilu znalezionej osoby */}
+      <PersonProfile person={osoba} /> {}
     </div>
   );
 }

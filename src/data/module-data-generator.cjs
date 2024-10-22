@@ -26,9 +26,12 @@ fs.readFile('./names.txt', 'utf8', (err, data) => {
         
         // Losowanie koloru oczu
         const eyes = ["blue", "green", "brown"][Math.floor(Math.random() * 3)];
+        
+        // Losowanie ratingu (zakres: 0-10)
+        const rating = Math.floor(Math.random() * 11);
 
         // Dodawanie obiektu do treści
-        content += `  { id: ${id}, name: "${name}", birth: "${birth}", eyes: "${eyes}" },\n`;
+        content += `  { id: ${id}, name: "${name}", birth: "${birth}", eyes: "${eyes}", rating: ${rating} },\n`;
     }
 
     content += "];\n";
