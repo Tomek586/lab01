@@ -1,13 +1,16 @@
 import React from "react";
-import { useReducer } from "react";
-import AppReducer from "../data/AppReducer";
+// import { useReducer } from "react";
+// import AppReducer from "../data/AppReducer";
+import useData from "../hooks/useData"; 
+import useDispatch from "../hooks/useDispatch"; 
 
-const FlexContainer = ({ element: Element, data }) => {
-	const [items, dispatch] = useReducer(AppReducer, data);
+const FlexContainer = ({ element: Element}) => {
+	const data = useData(); 
+    const dispatch = useDispatch(); 
 
 	return (
 		<div className="d-flex flex-wrap">
-			{items.map((item) => (
+			{data.map((item) => (
 				<Element
 					key={item.id}
 					person={item}

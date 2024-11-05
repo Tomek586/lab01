@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RatingBar from "./RatingBar";
+import useDispatch from "../hooks/useDispatch";
 
-const PersonProfile = ({ person, dispatch }) => {
+const PersonProfile = ({ person }) => {
     const [rating, setRating] = useState(person.rating);
-    const navigate = useNavigate(); // Inicjalizacja funkcji nawigacji
+    const dispatch = useDispatch(); // Używamy hooka useDispatch
+    const navigate = useNavigate();
 
     const handleRate = () => {
         const newRating = rating === 10 ? 0 : rating + 1;
