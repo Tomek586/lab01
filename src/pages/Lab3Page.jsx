@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import FlexContainer from "../components/FlexContainer";
 import PersonProfile from "../components/PersonProfile";
-import { data } from "../module-data";
+import AppContext from "../data/AppContext";
 
 const Lab3Page = () => {
+	const { items } = useContext(AppContext);
+
 	return (
 		<div className="container">
 			<h1>Laboratorium 3</h1>
 			<FlexContainer
 				element={PersonProfile}
-				data={data}
+				data={items}  // korzysta z danych z kontekstu
 			/>
 		</div>
 	);

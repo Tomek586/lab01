@@ -1,5 +1,10 @@
 export default function AppReducer(state, action) {
 	switch (action.type) {
+		case "ADD_ITEM": {
+			// Dodanie nowego użytkownika do istniejącego stanu
+			return [...state, action.payload];
+		}
+
 		case "edit": {
 			return state.map((person) =>
 				person.id === action.id
