@@ -11,6 +11,9 @@ import NotFound from "./pages/NotFound";
 import AppReducer from "./data/AppReducer";
 import AppContext from "./data/AppContext";
 import { data } from "./module-data";
+import Lab5Page from "./pages/Lab5Page";
+import UserProfile from "./components/UserProfile";
+import PostComments from "./components/PostComments";
 
 // Menu items
 const menuItems = [
@@ -56,6 +59,13 @@ const menuItems = [
 		urlPattern: "/lab4/edit/:id",
 		element: <EditForm />,
 	},
+	{
+		id: 7,
+		label: "Lab 5",
+		url: "/lab5",
+		urlPattern: "/lab5",
+		element: <Lab5Page />,
+	},
 ];
 
 const App = () => {
@@ -86,10 +96,22 @@ const App = () => {
 							<NotFound />
 						}
 					/>
+					<Route
+						path="/lab5/posts/:id/comments"
+						element={
+							<PostComments />
+						}
+					/>
+					<Route
+						path="/lab5/users/:id"
+						element={
+							<UserProfile />
+						}
+					/>
 				</Routes>
 			</RootLayout>
 		</AppContext.Provider>
 	);
 };
 
-export default App;  
+export default App;

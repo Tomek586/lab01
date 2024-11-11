@@ -3,6 +3,8 @@ import React from "react";
 const RatingBar = ({ rate }) => {
 	const totalStars = 10;
 
+	const validRating = Math.min(Math.max(rate, 0), totalStars);
+
 	return (
 		<div className="rating-bar">
 			{Array.from(
@@ -12,8 +14,7 @@ const RatingBar = ({ rate }) => {
 						key={index}
 						className="star"
 					>
-						{}
-						{index < rate
+						{index < validRating
 							? "★"
 							: "☆"}
 					</span>

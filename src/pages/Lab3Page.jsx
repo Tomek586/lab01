@@ -11,7 +11,7 @@ const Lab3Page = () => {
 			<h1>Laboratorium 3</h1>
 			<FlexContainer
 				element={PersonProfile}
-				data={items}  // korzysta z danych z kontekstu
+				data={items}
 			/>
 		</div>
 	);

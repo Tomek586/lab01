@@ -1,7 +1,6 @@
 export default function AppReducer(state, action) {
 	switch (action.type) {
 		case "ADD_ITEM": {
-			// Dodanie nowego użytkownika do istniejącego stanu
 			return [...state, action.payload];
 		}
 
@@ -18,16 +17,23 @@ export default function AppReducer(state, action) {
 				person.id === action.id
 					? {
 							...person,
-							rating: action.rating,
+							rating: Math.min(
+								Math.max(
+									action.rating,
+									0
+								),
+								10
+							),
 					  }
 					: person
 			);
 		}
 
-		case "delete":
+		case "delete": {
 			return state.filter(
-				(person) => person.id !== action.id
+				(person) => person.id !== action.payload
 			);
+		}
 
 		default:
 			return state;

@@ -16,13 +16,16 @@ const AddForm = () => {
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
-		setFormData({ ...formData, [name]: value });
+
+		const newValue = name === "rating" ? Number(value) : value;
+
+		setFormData({ ...formData, [name]: newValue });
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		
-		// Validation logic...
+
+		// Walidacja formularza
 		if (formData.name === "") {
 			setErrors(["Name is required"]);
 			return;
@@ -34,7 +37,6 @@ const AddForm = () => {
 			payload: { ...formData, id: Date.now() },
 		});
 
-		// Wyczyść formularz
 		setFormData({
 			name: "",
 			birthDate: "",
@@ -42,7 +44,6 @@ const AddForm = () => {
 			rating: 0,
 		});
 
-		// Przekierowanie do strony Lab3Page
 		navigate("/lab3");
 	};
 
@@ -54,50 +55,79 @@ const AddForm = () => {
 					<p key={i}>{e}</p>
 				))}
 			</div>
-			<Form onSubmit={handleSubmit} className="border p-4 rounded shadow">
+			<Form
+				onSubmit={handleSubmit}
+				className="border p-4 rounded shadow"
+			>
 				<Form.Group controlId="formName">
 					<Form.Label>Name</Form.Label>
 					<Form.Control
 						type="text"
 						name="name"
-						value={formData.name}
-						onChange={handleChange}
+						value={
+							formData.name
+						}
+						onChange={
+							handleChange
+						}
 						required
 					/>
 				</Form.Group>
-				<Form.Group controlId="formBirthDate">
-					<Form.Label>Birth Date</Form.Label>
+				<Form.Group controlId="formBirth">
+					<Form.Label>
+						Birth Date
+					</Form.Label>
 					<Form.Control
 						type="date"
-						name="birthDate"
-						value={formData.birthDate}
-						onChange={handleChange}
+						name="birth"
+						value={
+							formData.birth
+						}
+						onChange={
+							handleChange
+						}
 						required
 					/>
 				</Form.Group>
-				<Form.Group controlId="formEyeColor">
-					<Form.Label>Eye Color</Form.Label>
+				<Form.Group controlId="formEyes">
+					<Form.Label>
+						Eye Color
+					</Form.Label>
 					<Form.Control
 						type="text"
-						name="eyeColor"
-						value={formData.eyeColor}
-						onChange={handleChange}
+						name="eyes"
+						value={
+							formData.eyes
+						}
+						onChange={
+							handleChange
+						}
 						required
 					/>
 				</Form.Group>
 				<Form.Group controlId="formRating">
-					<Form.Label>Rating (0-10)</Form.Label>
+					<Form.Label>
+						Rating (0-10)
+					</Form.Label>
 					<Form.Control
 						type="number"
 						name="rating"
-						value={formData.rating}
-						onChange={handleChange}
+						value={
+							formData.rating
+						}
+						onChange={
+							handleChange
+						}
 						min="0"
 						max="10"
 						required
 					/>
 				</Form.Group>
-				<Button variant="primary" type="submit" className="mt-3">
+				<Button
+					variant="primary"
+					type="submit"
+					className="mt-3"
+				>
 					Add User
 				</Button>
 			</Form>

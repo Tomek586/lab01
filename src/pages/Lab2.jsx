@@ -5,6 +5,7 @@ import AppReducer from "../data/AppReducer";
 
 function Lab2() {
 	const [state, dispatch] = useReducer(AppReducer, data);
+
 	return (
 		<div className="container">
 			<h1 className="text-center my-4">Profile Osób</h1>
