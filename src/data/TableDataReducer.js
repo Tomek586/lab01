@@ -1,4 +1,3 @@
-// reducers/TableDataReducer.js
 const TableDataReducer = (state, action) => {
 	switch (action.type) {
 		case "SORT_USERNAME_ASC":

@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { data } from "../module-data";
 
-function Lab2() {
+function Lab1() {
 	const { id } = useParams();
 
 	if (!id) return <p>Brak identyfikatora osoby.</p>;
@@ -63,4 +63,4 @@ function Lab2() {
 	);
 }
 
-export default Lab2;
+export default Lab1;

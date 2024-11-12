@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RatingBar from "./RatingBar";
-import useDispatch from "../hooks/useDispatch";
 
-const PersonProfile = ({ person }) => {
+const PersonProfile = ({ person, dispatch }) => {
 	const [rating, setRating] = useState(person.rating);
-	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const handleRate = () => {
@@ -34,48 +32,22 @@ const PersonProfile = ({ person }) => {
 	return (
 		<div className="card mb-3" style={{ width: "18rem" }}>
 			<div className="card-body">
-				<h5 className="card-title">
-					{person.name}
-				</h5>
-				<p className="card-text">
-					<strong>ID:</strong>{" "}
-					{person.id}
-				</p>
-				<p className="card-text">
-					<strong>
-						Data urodzenia:
-					</strong>{" "}
-					{person.birth}
-				</p>
-				<p className="card-text">
-					<strong>Kolor oczu:</strong>{" "}
-					{person.eyes}
-				</p>
+				<h5 className="card-title">{person.name}</h5>
+				<p className="card-text"><strong>ID:</strong> {person.id}</p>
+				<p className="card-text"><strong>Data urodzenia:</strong> {person.birth}</p>
+				<p className="card-text"><strong>Kolor oczu:</strong> {person.eyes}</p>
 				<RatingBar rate={rating} />
 
 				<div className="d-flex justify-content-between mt-3">
-					<button
-						className="btn btn-warning"
-						onClick={
-							handleEditClick
-						}
-					>
+					<button className="btn btn-warning" onClick={handleEditClick}>
 						Edit
 					</button>
 
-					<button
-						className="btn btn-danger"
-						onClick={
-							handleDelete
-						}
-					>
+					<button className="btn btn-danger" onClick={handleDelete}>
 						Delete
 					</button>
 
-					<button
-						className="btn btn-primary"
-						onClick={handleRate}
-					>
+					<button className="btn btn-primary" onClick={handleRate}>
 						Rate
 					</button>
 				</div>

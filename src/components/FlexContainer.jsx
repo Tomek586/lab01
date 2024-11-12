@@ -1,6 +1,4 @@
 import React from "react";
-// import { useReducer } from "react";
-// import AppReducer from "../data/AppReducer";
 import useData from "../hooks/useData"; 
 import useDispatch from "../hooks/useDispatch"; 
 

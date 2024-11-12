@@ -1,7 +1,5 @@
-// components/UserProfile.js
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import useFetch from "../data/useFetch";
 
 const UserProfile = () => {
 	const { id } = useParams();
@@ -20,12 +18,26 @@ const UserProfile = () => {
 	if (!user) return <p>Loading...</p>;
 
 	return (
-		<div>
-			<h2>{user.name}</h2>
-			<p>Email: {user.email}</p>
-			<p>Phone: {user.phone}</p>
-			<p>Username: {user.username}</p>
-			<p>Street: {user.address.street}</p>
+		<div className="container my-4">
+			<div className="card">
+				<div className="card-header text-primary">
+					<h2 className="mb-0">{user.name}</h2>
+				</div>
+				<ul className="list-group list-group-flush">
+					<li className="list-group-item">
+						<strong>Email:</strong> {user.email}
+					</li>
+					<li className="list-group-item">
+						<strong>Phone:</strong> {user.phone}
+					</li>
+					<li className="list-group-item">
+						<strong>Username:</strong> {user.username}
+					</li>
+					<li className="list-group-item">
+						<strong>Street:</strong> {user.address.street}
+					</li>
+				</ul>
+			</div>
 		</div>
 	);
 };
